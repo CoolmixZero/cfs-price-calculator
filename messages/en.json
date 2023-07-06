@@ -1,0 +1,16 @@
+{
+  "Index": {
+    "author": "Created by:",
+    "title": "Price Calculator",
+    "title_description": "Price calculation for buying and selling a car at the best price",
+    "reset": "Reset",
+    "form_title": "Calculator",
+    "form_subtitle": "The calculation goes with the following percentages: ",
+    "client_price_field": "Price that the npc called",
+    "sell": "Sell",
+    "buy": "Buy",
+    "mode_master": "Master",
+    "mode_apprentice": "Apprentice",
+    "mode_amateur": "Amateur"
+  }
+}
