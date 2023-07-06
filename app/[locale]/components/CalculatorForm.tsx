@@ -167,7 +167,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           to-teal-400
         "
       >
-        {(result_buy + client_value).toFixed(2)}
+        {(client_value - result_buy).toFixed(2)}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}
