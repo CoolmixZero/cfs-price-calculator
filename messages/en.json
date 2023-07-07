@@ -16,6 +16,11 @@
   },
   "Catalog": {
     "title": "Explore Cars",
-    "title_description": "Discover a comprehensive collection of information about various car models"
+    "title_description": "Discover a comprehensive collection of information about various car models",
+    "speed": "Top speed:",
+    "speed_units": "km/h",
+    "time_units": "s",
+    "acceleration": "Acceleration",
+    "currency": "$"
   }
 }

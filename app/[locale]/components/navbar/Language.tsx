@@ -25,22 +25,10 @@ const Language = () => {
           "
         >
           <Link className="text-black dark:text-white" href={`/en${pathname === '/' ? pathname : pathname.slice(3)}`} lang='en'>
-            {/* <Image 
-              src="/images/uk.png"
-              width={32}
-              height={32}
-              alt="uk"
-            /> */}
             {"en"}
           </Link>
           {" | "}
           <Link className="text-black dark:text-white" href={`/ru${pathname.slice(3)}`} lang='ru'>
-          {/* <Image 
-              src="/images/russia.png"
-              width={32}
-              height={32}
-              alt="ru"
-            /> */}
           {"ru"}
           </Link>
         </div>
