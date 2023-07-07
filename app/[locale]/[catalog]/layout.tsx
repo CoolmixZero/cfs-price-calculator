@@ -1,13 +1,13 @@
-import "./globals.css"
+import "../globals.css"
 import {useLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
  
-interface LocaleLayoutProps {
+interface CatalogLayoutProps {
   children: React.ReactNode,
   params: any
 }
 
-const LocaleLayout: React.FC<LocaleLayoutProps> = ({children, params}) => {
+const CatalogLayout: React.FC<CatalogLayoutProps> = ({children, params}) => {
   const locale = useLocale();
   
   // Show a 404 error if the user requests an unknown locale
@@ -16,12 +16,10 @@ const LocaleLayout: React.FC<LocaleLayoutProps> = ({children, params}) => {
   }
  
   return (
-    <html lang={locale}>
-      <body className="bg-cover bg-gray-300 dark:bg-gray-900">
-        {children}
-      </body>
-    </html>
+    <section lang={locale}>
+      {children}
+    </section>
   );
 }
 
-export default LocaleLayout;
+export default CatalogLayout;

@@ -10,13 +10,13 @@ const Hero: React.FC<HeroProps> = ({
   title_description
 }) => {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <div className="z-10 max-w-6xl mx-auto px-4 sm:px-6">
       {/* Hero content */}
       <div className="pt-12 md:pt-16">
         {/* Section header */}
         <div className="text-center">
           <h1
-            className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
+            className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4 dark:text-white text-black"
             data-aos="zoom-y-out"
           >
             Car For Sale Simulator 2023 
