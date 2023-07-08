@@ -21,7 +21,7 @@ const CatalogLoading = () => {
             {Array.from({length: 12}, (index, i) => (
               <div
               className="
-                p-32
+                p-48
                 flex
                 justify-center
                 items-center
