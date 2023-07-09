@@ -7,7 +7,7 @@ export default function Index() {
   const t = useTranslations('Index');
   return (
     <div>
-      <Navbar author={t("author")}/>
+      <Navbar author={t("author")} calculator={t("form_title")} catalog={t("nav_catalog")}/>
       <Hero title={t("title")} title_description={t("title_description")} />
       <CalculatorForm 
         title={t("form_title")}

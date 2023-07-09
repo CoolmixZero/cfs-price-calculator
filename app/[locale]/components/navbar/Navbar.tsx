@@ -1,31 +1,51 @@
 "use client"
 
+import Link from "next/link";
 import Language from "./Language";
 
 interface NavbarProps {
   author: string;
+  calculator: string;
+  catalog: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({author}) => {
+const Navbar: React.FC<NavbarProps> = ({author, calculator, catalog}) => {
     return (
+      <>
+        <p className="text-md text-black dark:text-white">
+          {author}{" "}<a className="font-bold" href="https://github.com/CoolmixZero">CoolmixZero</a>
+        </p>
         <div
             className="
-              relative
+              fixed
               flex
-              flex-row
               text-neutral-200
-              items-center
-              justify-between
+              justify-center
               w-full
-              h-full
-              z-20
+              z-50
             "
         >
-          <p className="text-md">
-            {author}{" "}<a className="font-bold" href="https://github.com/CoolmixZero">CoolmixZero</a>
-          </p>
-          <Language />
+          <div 
+            className="
+              flex
+              flex-row
+              px-2
+              py-1
+              rounded-full
+              gap-2
+              w-fit
+              bg-black/50
+              select-none
+              items-centre
+            "
+          >
+          <Link className="text-md text-black dark:text-white hover:underline" href="/">{calculator}</Link>
+          <p className="text-black/10 dark:text-white/10 text-center">{" | "}</p>
+          <Link className="text-md text-black dark:text-white hover:underline" href="/catalog">{catalog}</Link>
+          </div>
         </div>
+        <Language />
+      </>
     );
 }
 

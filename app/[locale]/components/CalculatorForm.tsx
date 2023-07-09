@@ -119,11 +119,12 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           justify-center
           text-xl 
           text-center 
-          bg-clip-text 
-          text-transparent 
-          bg-gradient-to-r 
-          from-blue-500 
-          to-teal-400
+          sm:text-white
+          md:bg-clip-text 
+          md:text-transparent 
+          md:bg-gradient-to-r 
+          md:from-blue-500 
+          md:to-teal-400
         "
       >
         {(result_sell + client_value).toFixed(2)}
@@ -160,11 +161,12 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           justify-center
           text-xl 
           text-center 
-          bg-clip-text 
-          text-transparent 
-          bg-gradient-to-r 
-          from-blue-500 
-          to-teal-400
+          sm:text-white
+          md:bg-clip-text 
+          md:text-transparent 
+          md:bg-gradient-to-r 
+        md:from-blue-500 
+          md:to-teal-400
         "
       >
         {(client_value - result_buy).toFixed(2)}

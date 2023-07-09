@@ -4,6 +4,7 @@
     "title": "Price Calculator",
     "title_description": "Price calculation for buying and selling a car at the best price",
     "reset": "Reset",
+    "nav_catalog": "Catalog",
     "form_title": "Calculator",
     "form_subtitle": "The calculation goes with the following percentages: ",
     "client_price_field": "Price that the npc called",
@@ -12,5 +13,14 @@
     "mode_master": "Master",
     "mode_apprentice": "Apprentice",
     "mode_amateur": "Amateur"
+  },
+  "Catalog": {
+    "title": "Explore Cars",
+    "title_description": "Discover a comprehensive collection of information about various car models",
+    "speed": "Top speed:",
+    "speed_units": "km/h",
+    "time_units": "s",
+    "acceleration": "Acceleration",
+    "currency": "$"
   }
 }

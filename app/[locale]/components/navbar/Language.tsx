@@ -2,35 +2,30 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Language = () => {
+    let pathname = usePathname()
     return (
         <div
           className="
             fixed
             bg-transparent
+            w-fit
+            
             inset-y-0 
             right-0
             px-4
             z-30
+            text-black/10 dark:text-white/30 text-center
           "
         >
-          <Link href="/en" lang='en'>
-            <Image 
-              src="/images/uk.png"
-              width={32}
-              height={32}
-              alt="uk"
-            />
+          <Link className="text-black dark:text-white" href={`/en${pathname.startsWith("/en") ? pathname.slice(3) : pathname}`} lang='en'>
+            {"en"}
           </Link>
-          {" "}{" "}
-          <Link href="/ru" lang='ru'>
-          <Image 
-              src="/images/russia.png"
-              width={32}
-              height={32}
-              alt="ru"
-            />
+          {" | "}
+          <Link className="text-black dark:text-white" href={`/ru${pathname.startsWith("/en") ? pathname.slice(3) : pathname}`} lang='ru'>
+          {"ru"}
           </Link>
         </div>
     );
