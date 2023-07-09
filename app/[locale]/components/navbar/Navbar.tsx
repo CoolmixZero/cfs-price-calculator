@@ -39,9 +39,9 @@ const Navbar: React.FC<NavbarProps> = ({author, calculator, catalog}) => {
               items-centre
             "
           >
-          <Link className="text-md text-black dark:text-white hover:underline" href="/">{calculator}</Link>
+          <Link className="text-md text-black dark:text-white hover:underline" href={author === "Создал:" ? "/" : "/en"}>{calculator}</Link>
           <p className="text-black/10 dark:text-white/10 text-center">{" | "}</p>
-          <Link className="text-md text-black dark:text-white hover:underline" href="/catalog">{catalog}</Link>
+          <Link className="text-md text-black dark:text-white hover:underline" href={author === "Создал:" ? "/catalog" : "/en/catalog"}>{catalog}</Link>
           </div>
         </div>
         <Language />
