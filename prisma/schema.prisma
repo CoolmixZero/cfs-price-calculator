@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:db/cars.db"
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
 }
 
 model Cars {
-  id           Int    @id @default(autoincrement())
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
   title        String @unique
   image        String?
   max_speed    Int?
