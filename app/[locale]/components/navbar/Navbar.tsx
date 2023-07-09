@@ -37,11 +37,13 @@ const Navbar: React.FC<NavbarProps> = ({author, calculator, catalog}) => {
               bg-black/50
               select-none
               items-centre
+              text-black 
+              dark:text-white
             "
           >
-          <Link className="text-md text-black dark:text-white hover:underline" href={author === "Создал:" ? "/" : "/en"}>{calculator}</Link>
+          <Link className="text-md hover:underline" href={author === "Создал:" ? "/" : "/en"}>{calculator}</Link>
           <p className="text-black/10 dark:text-white/10 text-center">{" | "}</p>
-          <Link className="text-md text-black dark:text-white hover:underline" href={author === "Создал:" ? "/catalog" : "/en/catalog"}>{catalog}</Link>
+          <Link className="text-md hover:underline" href={author === "Создал:" ? "/catalog" : "/en/catalog"}>{catalog}</Link>
           </div>
         </div>
         <Language />
