@@ -14,7 +14,7 @@ const GridContainer: React.FC<GridContainerProps> = async ({speed, currency, spe
   const cars = await getAllCars();
 
   return (
-    <div className="relative w-full sm:px-12 px-20">
+    <div className="relative w-full px-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6 justify-center">
           {cars.map((car: any) => (
             <div className="flex items-center" key={car.id}>
