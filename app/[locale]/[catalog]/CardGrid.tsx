@@ -17,14 +17,14 @@ const CardGrid: React.FC<CardGridProps> = ({car, speed, currency, speed_units, t
 
   return (
     <Card isPressable>
-      <Card.Header className="absolute z-10 bg-neutral-100/30 dark:bg-neutral-900/30">
+      <Card.Header className="absolute z-10 bg-gradient-to-b from-neutral-900/70 to-transparent">
         <div className="flex flex-row justify-between text-white w-full items-center">
           <div className="items-center px-2">
-            <div className="text-2xl font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] ">
+            <div className="text-xl font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] ">
             {car.title}
             </div>
           </div>
-          <div className="flex flex-row justify-between text-md bg-neutral-100/40 dark:bg-neutral-900/40 rounded-full px-1 text-green-300 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+          <div className="flex flex-row justify-between text-sm bg-neutral-900/40 rounded-full px-2 text-green-300 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
             <div className="">
               {car.min_price?.toLocaleString("en-US")}
             </div>  
@@ -44,8 +44,8 @@ const CardGrid: React.FC<CardGridProps> = ({car, speed, currency, speed_units, t
           alt={car.title}
         />
       </Card.Body>
-      <Card.Footer className="bg-neutral-100 dark:bg-neutral-900">
-        <div className="flex flex-row px-2 justify-between items-center w-full text-lg text-black dark:text-white">
+      <Card.Footer className="absolute bottom-0 bg-gradient-to-t from-neutral-900 dark:to-transparent">
+        <div className="flex flex-row px-2 justify-between items-center w-full text-lg text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] ">
           <div>
             {speed}
             <p className={`

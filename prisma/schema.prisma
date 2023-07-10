@@ -10,6 +10,7 @@ datasource db {
 model Cars {
   id           String    @id @default(auto()) @map("_id") @db.ObjectId
   title        String @unique
+  car_title  String?
   image        String?
   max_speed    Int?
   acceleration Float?
