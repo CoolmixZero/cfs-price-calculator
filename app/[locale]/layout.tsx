@@ -1,7 +1,11 @@
 import "./globals.css"
 import {useLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
- 
+
+export const metadata = {
+  title: "CFS",
+  description: "Car For Sale Calculator and Catalog",
+};
 interface LocaleLayoutProps {
   children: React.ReactNode,
   params: any

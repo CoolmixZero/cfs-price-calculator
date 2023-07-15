@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,11 +19,11 @@ const Language = () => {
             text-black/10 dark:text-white/30 text-center
           "
         >
-          <Link className="text-black dark:text-white" href={`/en${pathname.startsWith("/en") ? pathname.slice(3) : pathname}`} lang='en'>
+          <Link className="text-black dark:text-white" href={`/en${pathname?.startsWith("/en") ? pathname.slice(3) : pathname}`} lang='en'>
             {"en"}
           </Link>
           {" | "}
-          <Link className="text-black dark:text-white" href={`/ru${pathname.startsWith("/en") ? pathname.slice(3) : pathname}`} lang='ru'>
+          <Link className="text-black dark:text-white" href={`/ru${pathname?.startsWith("/en") ? pathname.slice(3) : pathname}`} lang='ru'>
           {"ru"}
           </Link>
         </div>

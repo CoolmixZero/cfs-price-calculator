@@ -21,6 +21,7 @@
     "speed_units": "km/h",
     "time_units": "s",
     "acceleration": "Acceleration",
-    "currency": "$"
+    "currency": "$",
+    "auction": "only on auction"
   }
 }

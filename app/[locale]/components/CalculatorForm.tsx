@@ -71,6 +71,9 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
   }
   
 
+  const buy_price = Math.floor(result_sell + client_value);
+  const sell_price = Math.ceil((client_value - result_buy));
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <HeadingMode 
@@ -127,7 +130,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           md:to-teal-400
         "
       >
-        {(result_sell + client_value).toFixed(2)}
+        {buy_price}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}
@@ -169,7 +172,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           md:to-teal-400
         "
       >
-        {(client_value - result_buy).toFixed(2)}
+        {sell_price}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}

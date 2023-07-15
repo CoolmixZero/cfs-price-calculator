@@ -21,6 +21,7 @@
     "speed_units": "км/ч",
     "time_units": "с",
     "acceleration": "Разгон",
-    "currency": "₽"
+    "currency": "₽",
+    "auction": "только на аукционе"
   }
 }

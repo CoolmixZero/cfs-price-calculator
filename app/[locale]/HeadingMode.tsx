@@ -1,7 +1,9 @@
+/* eslint-disable react/display-name */
 "use client";
 
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import Button from "./Button";
+import React from "react";
 
 interface HeadingModeProps {
   mode1: string;
@@ -13,7 +15,7 @@ interface HeadingModeProps {
   setTab: Dispatch<SetStateAction<number>>;
 }
 
-const HeadingMode: React.FC<HeadingModeProps> = ({ mode1, mode2, mode3, subtitle, center, currentTab, setTab }) => {
+const HeadingMode: React.FC<HeadingModeProps> = React.memo(({ mode1, mode2, mode3, subtitle, center, currentTab, setTab }) => {
   return (
     <div className={center ? "text-center" : "text-start"}>
       <div className="flex flex-row justify-between gap-4 text-2xl font-bold">
@@ -24,6 +26,7 @@ const HeadingMode: React.FC<HeadingModeProps> = ({ mode1, mode2, mode3, subtitle
       <div className="font-light text-neutral-500 mt-2">{subtitle}</div>
     </div>
   );
-};
+});
+
 
 export default HeadingMode;

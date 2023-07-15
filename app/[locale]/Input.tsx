@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import { BiDollar, BiRuble } from "react-icons/bi";
 
@@ -44,7 +44,7 @@ const Input: React.FC<InputProps> = ({
     <div className="w-full relative">
       {formatPrice && label !== "Price that the npc called" ? (
         <BiRuble
-          size={20}
+          size={26}
           className="
             text-neutral-700
             absolute
@@ -54,7 +54,7 @@ const Input: React.FC<InputProps> = ({
         />
       ) : (
         <BiDollar
-          size={20}
+          size={26}
           className="
             text-neutral-700
             absolute
@@ -79,6 +79,7 @@ const Input: React.FC<InputProps> = ({
           p-4
           pt-6 
           font-light 
+          text-2xl
           text-black
           bg-white 
           border-2

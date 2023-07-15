@@ -16,4 +16,5 @@ model Cars {
   acceleration Float?
   min_price    Int?
   max_price    Int?
+  is_exclusive Boolean?
 }
