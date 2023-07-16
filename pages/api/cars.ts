@@ -1,10 +1,37 @@
 // pages/api/cars.ts
 import prisma from '@/app/libs/prismadb';
 
-const getAllCars = async (page: number, pageSize: number, minSpeed: number, maxAcceleration: number, minPrice: number, maxPrice: number) => {
-  try {
+export interface CarFilter {
+  minSpeed: number;
+  maxAcceleration: number;
+  minPrice: number;
+  maxPrice: number;
+  isExclusive: number;
+  orderBy: string,
+  sortVia: string
+}
 
+const getAllCars = async (
+  page: number, 
+  pageSize: number, 
+  minSpeed: number, 
+  maxAcceleration: number, 
+  minPrice: number, 
+  maxPrice: number,
+  isExclusive: number,
+  orderBy: string,
+  sortVia: string
+) => {
+  try {
     let query: any = {};
+    const orderByQuery: any = {
+      [!sortVia 
+        ? "title" 
+        : sortVia
+      ]: !orderBy
+        ? "asc" 
+        : orderBy.replace(/\s/g, "")
+    };
 
     if (minSpeed) {
       query.max_speed = {gt: minSpeed};
@@ -22,13 +49,16 @@ const getAllCars = async (page: number, pageSize: number, minSpeed: number, maxA
       query.max_price = {lte: maxPrice};
     }
 
+    if (isExclusive === 1) {
+      query.is_exclusive = true;
+    };
+
+    // console.log("where:", query, "orderBy:", orderByQuery)
     const cars = await prisma.cars.findMany({
       take: pageSize,
       skip: (page - 1) * pageSize,
       where: query,
-      orderBy: {
-        title: 'asc',
-      },
+      orderBy: orderByQuery
     });
 
     return cars;
@@ -38,11 +68,30 @@ const getAllCars = async (page: number, pageSize: number, minSpeed: number, maxA
 };
 
 export default async function handler(req: any, res: any) {
-  const { page = 1, pageSize = 20, minSpeed = null, maxAcceleration = null, minPrice = null, maxPrice = null} = req.query;
-  // const filter: CarFilter = req.body;
+  const { 
+    page = 1, 
+    pageSize = 20,
+    minSpeed = null, 
+    maxAcceleration = null, 
+    minPrice = null, 
+    maxPrice = null, 
+    isExclusive = 0,
+    orderBy = null,
+    sortVia = null
+  } = req.query;
 
   try {
-    const filteredCars = await getAllCars(Number(page), Number(pageSize), Number(minSpeed), Number(maxAcceleration), Number(minPrice), Number(maxPrice));
+    const filteredCars = await getAllCars(
+      Number(page), 
+      Number(pageSize), 
+      Number(minSpeed), 
+      Number(maxAcceleration), 
+      Number(minPrice), 
+      Number(maxPrice),
+      Number(isExclusive),
+      orderBy,
+      sortVia
+    );
     res.status(200).json(filteredCars);
   } catch (error) {
     res.status(500).json({ error: 'An error occurred while filtering the cars.' });

@@ -22,6 +22,26 @@
     "time_units": "с",
     "acceleration": "Разгон",
     "currency": "₽",
-    "auction": "только на аукционе"
+    "auction": "только на аукционе",
+    "empty_title": "Нет точных совпадений",
+    "empty_subtitle": "Попробуйте изменить или удалить некоторые из ваших фильтров.",
+    "load_more": "Показать ещё"
+  },
+  "Filter": {
+    "title": "Фильтры",
+    "title_dynamics": "Динамика",
+    "title_price": "Цена",
+    "only_exclusives": "Только эксклюзивы",
+    "min_speed": "Скорость >",
+    "max_acceleration": "Разгон <",
+    "min_price": "Мин. цена",
+    "max_price": "Макс. цена",
+    "apply": "Применить",
+    "filter_by": "Фильтр:",
+    "filter_by_title": "Название",
+    "filter_by_speed": "Скорость",
+    "filter_by_acceleration": "Разгон",
+    "filter_by_min_price": "Мин. Цена",
+    "filter_by_max_price": "Макс. Цена"
   }
 }

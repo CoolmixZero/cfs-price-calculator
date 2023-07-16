@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import { BiDollar, BiRuble } from "react-icons/bi";
 
@@ -22,7 +22,7 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
   id,
   label,
-  type = "text",
+  type = "number",
   disabled,
   formatPrice,
   value,
@@ -37,6 +37,16 @@ const Input: React.FC<InputProps> = ({
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter" && onEnter) {
       onEnter();
+    }
+  };
+
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+
+    if (parseInt(inputValue) > 1000000000000) {
+      setValue(999999999999);
+    } else {
+      setValue(parseInt(inputValue));
     }
   };
 
@@ -70,8 +80,10 @@ const Input: React.FC<InputProps> = ({
         maxLength={17}
         {...register(id, { required })}
         placeholder={placeholder}
-        onChange={(e) =>  setValue(Number(e.target.value))}
+        value={value}
+        onChange={handleOnChange}
         type={type}
+        inputMode="numeric"
         onKeyDown={handleKeyPress}
         className={`
           peer

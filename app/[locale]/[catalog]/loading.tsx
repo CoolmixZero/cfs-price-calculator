@@ -17,6 +17,23 @@ const CatalogLoading = () => {
             >
               Price calculation for buying and selling a car at the best price
             </p>
+            <div
+              className="
+                justify-center
+                items-center
+                flex
+                overflow-x-hidden
+                overflow-y-auto
+                relative
+                rounded-xl
+                w-[35rem]
+                h-[20rem]
+                bg-gray-700/50
+                animate-pulse
+                mb-10
+              "
+            >
+            </div>
           </div>
         </div>
       </div>

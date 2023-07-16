@@ -103,7 +103,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
     <div
       className="
         flex
-        flex-row
+        flex-col
+        md:flex-row
         justify-center
         items-center
         gap-12
@@ -130,7 +131,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           md:to-teal-400
         "
       >
-        {buy_price}
+        {!buy_price ? 0 : buy_price.toLocaleString("en-US")}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}
@@ -172,7 +173,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           md:to-teal-400
         "
       >
-        {sell_price}
+        {!sell_price ? 0 : sell_price.toLocaleString("en-US")}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}

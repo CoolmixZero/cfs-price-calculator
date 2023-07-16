@@ -22,6 +22,26 @@
     "time_units": "s",
     "acceleration": "Acceleration",
     "currency": "$",
-    "auction": "only on auction"
+    "auction": "only on auction",
+    "empty_title": "No exact matches",
+    "empty_subtitle": "Try changing or removing some of your filters.",
+    "load_more": "Load more"
+  },
+  "Filter": {
+    "title": "Filters",
+    "title_dynamics": "Dynamics",
+    "title_price": "Price",
+    "only_exclusives": "Only Exclusives",
+    "min_speed": "Speed >",
+    "max_acceleration": "Acceleration <",
+    "min_price": "Min Price",
+    "max_price": "Max Price",
+    "apply": "Apply",
+    "filter_by": "Filter:",
+    "filter_by_title": "Title",
+    "filter_by_speed": "Speed",
+    "filter_by_acceleration": "Acceleration",
+    "filter_by_min_price": "Min Price",
+    "filter_by_max_price": "Max Price"
   }
 }
