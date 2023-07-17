@@ -36,6 +36,7 @@
     "max_acceleration": "Acceleration <",
     "min_price": "Min Price",
     "max_price": "Max Price",
+    "search_placeholder": "Search car",
     "apply": "Apply",
     "filter_by": "Filter:",
     "filter_by_title": "Title",

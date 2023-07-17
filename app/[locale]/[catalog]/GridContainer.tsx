@@ -20,6 +20,8 @@ interface GridContainerProps {
   min_price: string;
   max_price: string;
   apply: string;
+  search_placeholder: string;
+
   filter_by: string;
   filter_by_title: string;
   filter_by_speed: string;
@@ -52,7 +54,7 @@ interface Car {
 }
 
 const GridContainer: React.FC<GridContainerProps> = ({ 
-  filter_title, title_dynamics, title_price, only_exclusives, min_speed, max_acceleration, min_price, max_price, apply,
+  filter_title, title_dynamics, title_price, only_exclusives, min_speed, max_acceleration, min_price, max_price, apply, search_placeholder,
   filter_by, filter_by_title, filter_by_speed, filter_by_acceleration, filter_by_min_price, filter_by_max_price,
 
   speed, currency, speed_units, time_units, acceleration, auction, load_more,
@@ -127,6 +129,8 @@ const GridContainer: React.FC<GridContainerProps> = ({
             min_price={min_price}
             max_price={max_price}
             apply={apply}
+            search_placeholder={search_placeholder}
+
             filter_by={filter_by}
             filter_by_title={filter_by_title}
             filter_by_speed={filter_by_speed}
@@ -153,6 +157,8 @@ const GridContainer: React.FC<GridContainerProps> = ({
         min_price={min_price}
         max_price={max_price}
         apply={apply}
+        search_placeholder={search_placeholder}
+
         filter_by={filter_by}
         filter_by_title={filter_by_title}
         filter_by_speed={filter_by_speed}

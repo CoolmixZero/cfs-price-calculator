@@ -17,6 +17,8 @@ interface FilterProps {
   min_price: string;
   max_price: string;
   apply: string;
+  search_placeholder: string;
+
   filter_by: string;
   filter_by_title: string;
   filter_by_speed: string;
@@ -36,6 +38,7 @@ const Filter: React.FC<FilterProps> = ({
   min_price,
   max_price,
   apply,
+  search_placeholder,
   filter_by, filter_by_title, filter_by_speed, filter_by_acceleration, filter_by_min_price, filter_by_max_price,
   onFilter,
 }) => {
@@ -120,7 +123,7 @@ const Filter: React.FC<FilterProps> = ({
         />
         <Heading title={filter_title} center dark />
         <div className="flex flex-col w-full gap-2 rounded-xl justify-center items-center">
-          <SearchBar inputField={searchField} setInputField={setSearchField} onEnter={handleFilter} />
+          <SearchBar inputField={searchField} setInputField={setSearchField} onEnter={handleFilter} search_placeholder={search_placeholder} />
           <div className="relative flex justify-center items-start text-center w-fit h-fit">
             <input
               className={`

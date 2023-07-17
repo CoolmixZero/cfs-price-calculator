@@ -32,6 +32,7 @@ export default function Catalog () {
           min_price={f("min_price")}
           max_price={f("max_price")}
           apply={f("apply")}
+          search_placeholder={f("search_placeholder")}
 
           filter_by={f("filter_by")}
           filter_by_title={f("filter_by_title")}

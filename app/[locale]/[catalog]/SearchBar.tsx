@@ -6,12 +6,14 @@ import { IoMdSearch } from "react-icons/io"
 interface SearchBarProps {
   inputField: string;
   setInputField: Dispatch<SetStateAction<string>>;
+  search_placeholder: string;
   onEnter?: () => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
   inputField, 
   setInputField,
+  search_placeholder,
   onEnter
 }) => {
 
@@ -33,7 +35,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           maxLength={30}
           onKeyDown={handleKeyPress}
           value={inputField}
-          placeholder={"Search car"}
+          placeholder={search_placeholder}
           onChange={(e) => setInputField(e.target.value)}
         />
       </label>
