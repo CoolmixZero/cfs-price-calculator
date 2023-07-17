@@ -191,7 +191,7 @@ const GridContainer: React.FC<GridContainerProps> = ({
 
         </>
       )}
-      {cars.length === 0 && (
+      {cars.length === 0 && !isLoading && (
         <>
         <div className="relative w-full px-8">
           <EmptyState title={empty_title} subtitle={empty_subtitle}/>
