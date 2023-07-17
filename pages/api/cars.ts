@@ -9,6 +9,7 @@ export interface CarFilter {
   isExclusive: number;
   orderBy: string,
   sortVia: string
+  searchQuery: string;
 }
 
 const getAllCars = async (
@@ -20,7 +21,8 @@ const getAllCars = async (
   maxPrice: number,
   isExclusive: number,
   orderBy: string,
-  sortVia: string
+  sortVia: string,
+  searchQuery: string
 ) => {
   try {
     let query: any = {};
@@ -53,6 +55,14 @@ const getAllCars = async (
       query.is_exclusive = true;
     };
 
+    console.log(searchQuery);
+    if (searchQuery) {
+      query.OR = [
+        { title: { contains: searchQuery, mode: 'insensitive' } },
+        { car_title: { contains: searchQuery, mode: 'insensitive' } },
+      ];
+    }
+
     // console.log("where:", query, "orderBy:", orderByQuery)
     const cars = await prisma.cars.findMany({
       take: pageSize,
@@ -69,28 +79,30 @@ const getAllCars = async (
 
 export default async function handler(req: any, res: any) {
   const { 
-    page = 1, 
-    pageSize = 20,
+    page = '1', 
+    pageSize = '20',
     minSpeed = null, 
     maxAcceleration = null, 
     minPrice = null, 
     maxPrice = null, 
-    isExclusive = 0,
+    isExclusive = '0',
     orderBy = null,
-    sortVia = null
+    sortVia = null,
+    searchQuery = null
   } = req.query;
-
+  
   try {
     const filteredCars = await getAllCars(
       Number(page), 
       Number(pageSize), 
-      Number(minSpeed), 
-      Number(maxAcceleration), 
-      Number(minPrice), 
+      Number(minSpeed),
+      Number(maxAcceleration),
+      Number(minPrice),
       Number(maxPrice),
       Number(isExclusive),
       orderBy,
-      sortVia
+      sortVia,
+      searchQuery
     );
     res.status(200).json(filteredCars);
   } catch (error) {

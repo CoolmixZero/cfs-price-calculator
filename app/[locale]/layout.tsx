@@ -21,7 +21,7 @@ const LocaleLayout: React.FC<LocaleLayoutProps> = ({children, params}) => {
  
   return (
     <html lang={locale}>
-      <body className="bg-cover bg-gray-300 dark:bg-gray-900">
+      <body className="bg-cover bg-white dark:bg-gray-900">
         {children}
       </body>
     </html>

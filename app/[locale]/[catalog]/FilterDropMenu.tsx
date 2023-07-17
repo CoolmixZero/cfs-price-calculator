@@ -3,7 +3,6 @@
 import { MdOutlineFilterAlt, MdOutlineFilterAltOff } from "react-icons/md";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
 
 interface FilterDropMenuProps {
   selectedOption: string;
@@ -30,10 +29,6 @@ const FilterDropMenu: React.FC<FilterDropMenuProps> = ({
   filter_by_min_price,
   filter_by_max_price,
 }) => {
-  const pathname = usePathname();
-
-  const locale = pathname?.slice(0, 3);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardGrid from './CardGrid';
 import useSWRInfinite from 'swr/infinite';
 import EmptyState from '../EmptyState';
@@ -72,18 +72,35 @@ const GridContainer: React.FC<GridContainerProps> = ({
   };
 
   const { data, error, isLoading, size, setSize } = useSWRInfinite(
-    (index) => `/api/cars?
-      page=${index + 1}&
-      pageSize=20
-      &minSpeed=${filter?.minSpeed}
-      &maxAcceleration=${filter?.maxAcceleration}
-      &minPrice=${filter?.minPrice}
-      &maxPrice=${filter?.maxPrice}
-      &isExclusive=${filter?.isExclusive}
-      &orderBy=${filter?.orderBy ? filter?.orderBy : "asc" }
-      &sortVia=${filter?.sortVia ? filter?.sortVia : "title"}`,
-    fetchCars
+    (index) => {
+      const queryParams = new URLSearchParams({
+        page: String(index + 1),
+        pageSize: '20',
+        minSpeed: String(filter?.minSpeed),
+        maxAcceleration: String(filter?.maxAcceleration),
+        minPrice: String(filter?.minPrice),
+        maxPrice: String(filter?.maxPrice),
+        isExclusive: String(filter?.isExclusive),
+        orderBy: filter?.orderBy ? filter?.orderBy.replace(/\s/g, "") : "",
+        sortVia: filter?.sortVia ? filter?.sortVia.replace(/\s/g, "") : "",
+        searchQuery: filter?.searchQuery ? String(filter?.searchQuery) : "",
+      });
+  
+      return `/api/cars?${queryParams.toString()}`;
+    },
+    fetchCars,
+    {
+      dedupingInterval: 0,
+      refreshInterval: 0,
+      refreshWhenHidden: false,
+      refreshWhenOffline: false,
+      shouldRetryOnError: false
+    }
   );
+
+  useEffect(() => {
+    setSize(1);
+  }, [filter, setSize]);
 
   const cars = data ? data.flat() : [];
   const shouldShowLoadMore = cars.length > 0 && cars.length % 20 === 0;
@@ -94,7 +111,6 @@ const GridContainer: React.FC<GridContainerProps> = ({
 
   const handleFilter = (newFilter: CarFilter) => {
     setFilter(newFilter);
-    setSize(1);
   };
 
   if (error) {

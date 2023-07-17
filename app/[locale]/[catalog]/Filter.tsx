@@ -5,6 +5,7 @@ import Heading from "../Heading";
 import { IoMdRefresh, IoMdCheckmark } from "react-icons/io";
 import { CarFilter } from "@/pages/api/cars";
 import FilterDropMenu from "./FilterDropMenu";
+import SearchBar from "./SearchBar";
 
 interface FilterProps {
   filter_title: string;
@@ -43,6 +44,7 @@ const Filter: React.FC<FilterProps> = ({
   const [maxAcceleration, setMaxAcceleration] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+  const [searchField, setSearchField] = useState("");
 
   const [selectedOption, setSelectedOption] = useState("title");
   const [orderBy, setOrderBy] = useState("asc");
@@ -54,7 +56,8 @@ const Filter: React.FC<FilterProps> = ({
     maxPrice: parseInt(maxPrice),
     isExclusive: isExclusive,
     sortVia: selectedOption,
-    orderBy: orderBy
+    orderBy: orderBy,
+    searchQuery: searchField
   };
 
   const handleFilter = () => {
@@ -69,6 +72,7 @@ const Filter: React.FC<FilterProps> = ({
     setIsExclusive(0);
     setSelectedOption("title");
     setOrderBy("asc");
+    setSearchField("");
   };
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>, setter: any, valueToSet: number, limit: number, accept_float?: boolean) => {
@@ -85,7 +89,7 @@ const Filter: React.FC<FilterProps> = ({
 
   return (
     <div className="relative flex w-full h-fit justify-center items-center pb-10">
-      <div className="relative flex flex-col pt-2 w-full sm:w-8/12 md:w-6/12 lg:w-4/12 bg-neutral-900/40 rounded-3xl justify-center items-center">
+      <div className="relative flex flex-col pt-2 w-full sm:w-8/12 md:w-6/12 lg:w-4/12 bg-neutral-900 dark:bg-neutral-900/40 rounded-3xl justify-center items-center">
         <button
           className="
             p-1
@@ -115,8 +119,9 @@ const Filter: React.FC<FilterProps> = ({
           filter_by_max_price={filter_by_max_price}
         />
         <Heading title={filter_title} center dark />
-        <div className="flex rounded-xl items-center">
-          <div className="relative flex justify-center items-center text-center  w-fit h-fit">
+        <div className="flex flex-col w-full gap-2 rounded-xl justify-center items-center">
+          <SearchBar inputField={searchField} setInputField={setSearchField} onEnter={handleFilter} />
+          <div className="relative flex justify-center items-start text-center w-fit h-fit">
             <input
               className={`
                 appearance-none 
@@ -129,6 +134,7 @@ const Filter: React.FC<FilterProps> = ({
                 rounded 
                 transform ease-in-out duration-200 
                 outline
+                cursor-pointer
                 ${
                   !isExclusive
                     ? "outline-neutral-900/70"
@@ -142,19 +148,19 @@ const Filter: React.FC<FilterProps> = ({
             <IoMdCheckmark
               onClick={() => setIsExclusive(isExclusive ? 0 : 1)}
               className={`
-                absolute top-1 left-1 text-white
+                absolute top-1 left-1 text-white cursor-pointer
                 transform ease-in-out duration-200 
                 ${isExclusive === 1 ? "scale-100" : "scale-0"}
               `}
             />
-          </div>
-          <label className="ml-2 text-sm font-medium text-white">
+            <label className="ml-2 text-sm font-medium text-center text-white">
             {only_exclusives}
-          </label>
+            </label>
+          </div>
         </div>
         <div className="flex flex-row gap-6 p-5 text-xs md:text-sm lg:text-md xl:text-lg text-black justify-center items-center">
           <div className="flex flex-col bg-neutral-500/10 rounded-xl p-2 gap-3 text-center">
-            <div className="text-xl font-semibold text-black dark:text-white">
+            <div className="text-xl font-semibold text-white">
               {title_dynamics}
             </div>
             <div className="w-full relative">
@@ -240,7 +246,7 @@ const Filter: React.FC<FilterProps> = ({
             </div>
           </div>
           <div className="flex flex-col bg-neutral-500/10 rounded-xl p-2 gap-3 text-center">
-            <div className="text-xl font-semibold text-black dark:text-white">
+            <div className="text-xl font-semibold text-white">
               {title_price}
             </div>
             <div className="w-full relative">
@@ -306,7 +312,7 @@ const Filter: React.FC<FilterProps> = ({
           </div>
         </div>
         <button
-          className="cursor-pointer text-white w-5/12 outline rounded-2xl p-2"
+          className="cursor-pointer text-white w-5/12 outline rounded-2xl p-2 mb-4  "
           onClick={handleFilter}
         >
           {apply}
