@@ -36,7 +36,7 @@
     "max_acceleration": "Разгон <",
     "min_price": "Мин. цена",
     "max_price": "Макс. цена",
-    "search placeholder": "Поиск автомобиля",
+    "search_placeholder": "Поиск автомобиля",
     "apply": "Применить",
     "filter_by": "Фильтр:",
     "filter_by_title": "Название",
