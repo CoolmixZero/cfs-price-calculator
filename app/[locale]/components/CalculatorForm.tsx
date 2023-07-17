@@ -131,7 +131,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           md:to-teal-400
         "
       >
-        {!buy_price ? 0 : buy_price.toLocaleString("en-US")}
+        {!buy_price ? 0 : buy_price}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}
@@ -173,7 +173,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           md:to-teal-400
         "
       >
-        {!sell_price ? 0 : sell_price.toLocaleString("en-US")}
+        {!sell_price ? 0 : sell_price}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}
