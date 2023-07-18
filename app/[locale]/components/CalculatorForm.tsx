@@ -71,8 +71,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
   }
   
 
-  const sell_price = Math.ceil((client_value - result_buy + 1));  // minus 1 because sometimes npc don't agree 
-  const buy_price = Math.floor(result_sell + client_value - 1);  // plus 1 because sometimes npc don't agree 
+  const buy_price = Math.ceil((client_value - result_buy + 1));  // plus 1 because sometimes npc don't agree 
+  const sell_price = Math.floor(result_sell + client_value - 1);  // minus 1 because sometimes npc don't agree 
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -131,7 +131,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           md:to-teal-400
         "
       >
-        {!buy_price ? 0 : buy_price}
+        {!sell_price || sell_price === -1 ? 0 : sell_price}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}
@@ -173,7 +173,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           md:to-teal-400
         "
       >
-        {!sell_price ? 0 : sell_price}
+        {!buy_price || buy_price === -1 ? 0 : buy_price}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}
