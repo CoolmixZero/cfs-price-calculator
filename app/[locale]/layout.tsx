@@ -1,7 +1,6 @@
 import "./globals.css";
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 
 export const metadata = {
   title: "CFS",
@@ -38,19 +37,19 @@ const LocaleLayout: React.FC<LocaleLayoutProps> = ({ children, params }) => {
 
   return (
     <html lang={locale}>
-      {/* <head>
+      <head>
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1865112126139577"
           crossOrigin="anonymous"
         ></script>
-        <Script
+        {/* <Script
           async
           src="https://fundingchoicesmessages.google.com/i/pub-1865112126139577?ers=1"
           nonce="xG4oh1laltQ6VweQICU80g"
         ></Script>
-        <Script id="not-block-ads " nonce="xG4oh1laltQ6VweQICU80g">(function() {signalGooglefcPresent()})();</Script>
-      </head> */}
+        <Script id="not-block-ads " nonce="xG4oh1laltQ6VweQICU80g">(function() {signalGooglefcPresent()})();</Script> */}
+      </head>
       <body className="bg-cover bg-white dark:bg-gray-900">{children}</body>
     </html>
   );
