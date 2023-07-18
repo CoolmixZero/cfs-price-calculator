@@ -173,7 +173,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
           md:to-teal-400
         "
       >
-        {!buy_price || buy_price === -1 ? 0 : buy_price}
+        {!buy_price || buy_price === 1 ? 0 : buy_price}
         {title !== "Calculator" ? (
         <BiRuble
           size={20}
