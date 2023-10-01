@@ -1,6 +1,7 @@
 import "./globals.css";
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
+import { CrispProvider } from "./components/crisp-provider";
 
 export const metadata = {
   title: "CFS",
@@ -21,14 +22,10 @@ const LocaleLayout: React.FC<LocaleLayoutProps> = ({ children, params }) => {
 
   return (
     <html lang={locale}>
-      <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1865112126139577"
-          crossOrigin="anonymous"
-        ></script>
-      </head>
-      <body className="bg-cover bg-white dark:bg-gray-900">{children}</body>
+      <CrispProvider />
+      <body className="bg-cover bg-white dark:bg-gray-900">
+        {children}
+      </body>
     </html>
   );
 };

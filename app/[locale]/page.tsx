@@ -2,9 +2,11 @@ import {useTranslations} from 'next-intl';
 import Navbar from './components/navbar/Navbar';
 import Hero from './components/Hero';
 import CalculatorForm from './components/CalculatorForm';
+import { useEffect } from 'react';
  
 export default function Index() {
   const t = useTranslations('Index');
+  
   return (
     <div>
       <Navbar author={t("author")} calculator={t("form_title")} catalog={t("nav_catalog")}/>
