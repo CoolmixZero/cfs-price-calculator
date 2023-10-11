@@ -16,7 +16,7 @@
   },
   "Catalog": {
     "title": "Explore Cars",
-    "title_description": "Discover a comprehensive collection of information about various car models",
+    "title_description": "Discover a comprehensive collection of information about various car models (please send me pictures and characteristics of cars that are not yet in the catalog)",
     "speed": "Top speed:",
     "speed_units": "km/h",
     "time_units": "s",
